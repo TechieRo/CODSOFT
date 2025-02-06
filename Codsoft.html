@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Enhancer</title>
+    <style>
+        :root {
+            --primary-color: #24b4a3;
+            --secondary-color: #45f5c4;
+            --dark-bg: #2c3e50;
+            --light-bg: #ecf0f1;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
+        }
+        .header {
+            background: linear-gradient(135deg, #4FC3F7, #24b4a3);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .column {
+            flex-basis: calc(33.333% - 20px);
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--primary-color), var(--secondary-color));
+            transition: 0.5s;
+        }
+        .column:hover::before {
+            left: 0;
+        }
+        .column:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--secondary-color);
+            transition: 0.5s;
+            z-index: -1;
+        }
+        .cta-button:hover::before {
+            left: 0;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            animation: pulse 1s infinite;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #4FC3F7, #24b4a3);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        .footer {
+            background-color: var(--dark-bg);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .column {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Web Enhancer</h1>
+        <p>Transforming Ideas into Digital Excellence</p>
+    </header>
+    
+    <div class="container">
+        <div class="column">
+            <h2>Web Design</h2>
+            <p>Crafting responsive, user-centric websites that captivate and convert.</p>
+            <a href="#" class="cta-button">Learn More</a>
+        </div>
+        <div class="column">
+            <h2>UX Strategy</h2>
+            <p>Designing intuitive experiences that solve real user problems.</p>
+            <a href="#" class="cta-button">Explore Services</a>
+        </div>
+        <div class="column">
+            <h2>Digital Marketing</h2>
+            <p>Strategic campaigns that boost your online presence and engagement.</p>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </div>
+    
+    <section class="cta-section">
+        <h2>Ready to Transform Your Digital Strategy?</h2>
+        <p>Join thousands of businesses leveraging our innovative solutions.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </section>
+
+    <footer class="footer">
+    </footer>
+</body>
+</html>
+
